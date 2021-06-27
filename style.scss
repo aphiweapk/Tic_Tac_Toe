@@ -81,6 +81,7 @@ body{
         &:hover{
             transform: scale(1.1);
             box-shadow: 0px 0px 5px rgb(63, 63, 63);
+            outline: none;
         }
 
     }
@@ -97,11 +98,11 @@ body{
         height: 400px;
         width: 400px;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         margin: 0 auto;
         margin-top: 15px;
-        flex-grow: 1;
+        // flex-grow: 1;
         padding: 10px;
         box-shadow: 0px 0px 5px rgb(63, 63, 63);
         border-radius: 5px;
@@ -121,5 +122,16 @@ body{
                 background-color: rgb(48, 219, 56);
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .left{
+        display: none;
+    }
+
+    .right{
+        display: none;
     }
 }
