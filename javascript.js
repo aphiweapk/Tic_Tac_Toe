@@ -66,12 +66,7 @@ class Game {
                 // Player X wins here
             if( this.board[a] === 'X' && (this.board[a] === this.board[b] && this.board[a] === this.board[c])){
                 document.querySelector('.playerO').textContent = 'Wins!'
-                document.querySelector('.playerO').style.transform = 'scale(1.5)'
-                
-                let tiles = document.querySelectorAll('.col')
-                tiles.forEach(tile => {
-                    tile.removeEventListener('click', execute)
-                });
+                document.querySelector('.playerO').style.transform = 'scale(1.5);
 
                 // add wins history
                 let winsC = document.querySelector('.winsX');
@@ -79,6 +74,11 @@ class Game {
                 
                 winsC.textContent = Number.parseInt(winsC.textContent) + 1;
                 loseC.textContent = Number.parseInt(loseC.textContent) + 1;
+                 let tiles = document.querySelectorAll('.col')
+                tiles.forEach(tile => {
+                    tile.removeEventListener('click', execute)
+                    console.log("reach here")
+                });
                 return combination;
 
                 // Player O wins here
@@ -87,10 +87,6 @@ class Game {
                 document.querySelector('.playerX').textContent = 'Wins!'
                 document.querySelector('.playerX').style.transform = 'scale(1.5)';
                 
-                let tiles = document.querySelectorAll('.col')
-                tiles.forEach(tile => {
-                    tile.removeEventListener('click', execute)
-                });
 
                 // add wins history
 
@@ -99,13 +95,20 @@ class Game {
 
                 winsC.textContent = Number.parseInt(winsC.textContent) + 1;
                 loseC.textContent = Number.parseInt(loseC.textContent) + 1;
+                
+                let tiles = document.querySelectorAll('.col')
+                tiles.forEach(tile => {
+                    tile.removeEventListener('click', execute)
+                    console.log("reach here")
+                });
 
                 return combination;
             } else {
                 let tiles = document.querySelectorAll('.col')
                 tiles.forEach(tile => {
                     tile.removeEventListener('click', execute)
-                });
+                })
+                ;
             }
         }
         return null;
