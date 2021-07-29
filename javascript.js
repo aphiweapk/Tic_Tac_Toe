@@ -66,7 +66,7 @@ class Game {
                 // Player X wins here
             if( this.board[a] === 'X' && (this.board[a] === this.board[b] && this.board[a] === this.board[c])){
                 document.querySelector('.playerO').textContent = 'Wins!'
-                document.querySelector('.playerO').style.transform = 'scale(1.5);
+                document.querySelector('.playerO').style.transform = 'scale(1.5)';
 
                 // add wins history
                 let winsC = document.querySelector('.winsX');
