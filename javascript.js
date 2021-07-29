@@ -146,7 +146,9 @@ document.querySelector('#start').addEventListener('click', () => {
 })
 
 function eventListener() {
+    tiles.forEach(tile => {
     onTileClick(tile.dataset.index)
+    })
 }
 
 tiles.forEach(tile => {
