@@ -155,7 +155,7 @@ document.querySelector('#start').addEventListener('click', () => {
 let tiles = document.querySelectorAll('.col')
 
 function execute() {
-onTileClick(tile.dataset.index)
+   onTileClick(tile.dataset.index)
 }
 
 tiles.forEach(tile => {
