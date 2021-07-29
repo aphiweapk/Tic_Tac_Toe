@@ -15,6 +15,8 @@
 // let countWinsO = 0;
 // let countLossesO = 0;
 
+let tiles = document.querySelectorAll('.col')
+
 class Game {
 
     constructor(){
@@ -66,6 +68,9 @@ class Game {
             if( this.board[a] === 'X' && (this.board[a] === this.board[b] && this.board[a] === this.board[c])){
                 document.querySelector('.playerO').textContent = 'Wins!'
                 document.querySelector('.playerO').style.transform = 'scale(1.5)'
+                tiles.forEach(tile => {
+                    tile.removeEventListener('click', eventListener)
+                });
 
                 // add wins history
                 let winsC = document.querySelector('.winsX');
@@ -80,6 +85,9 @@ class Game {
                 let container = document.querySelector('#left-table')
                 document.querySelector('.playerX').textContent = 'Wins!'
                 document.querySelector('.playerX').style.transform = 'scale(1.5)';
+                tiles.forEach(tile => {
+                    tile.removeEventListener('click', eventListener)
+                });
 
                 // add wins history
 
@@ -90,6 +98,10 @@ class Game {
                 loseC.textContent = Number.parseInt(loseC.textContent) + 1;
 
                 return combination;
+            } else {
+                tiles.forEach(tile => {
+                    tile.removeEventListener('click', eventListener)
+                });
             }
         }
         return null;
@@ -133,11 +145,12 @@ document.querySelector('#start').addEventListener('click', () => {
     onRestartClick();
 })
 
-let tiles = document.querySelectorAll('.col')
+function eventListener() {
+    onTileClick(tile.dataset.index)
+}
+
 tiles.forEach(tile => {
-    tile.addEventListener('click', ()=> {
-        onTileClick(tile.dataset.index)
-    })
+    tile.addEventListener('click', eventListener)
 });
 
 function onTileClick(index){
