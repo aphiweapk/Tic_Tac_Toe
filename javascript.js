@@ -15,7 +15,6 @@
 // let countWinsO = 0;
 // let countLossesO = 0;
 
-let tiles = document.querySelectorAll('.col')
 
 class Game {
 
@@ -69,8 +68,8 @@ class Game {
                 document.querySelector('.playerO').textContent = 'Wins!'
                 document.querySelector('.playerO').style.transform = 'scale(1.5)'
                 tiles.forEach(tile => {
-                    tile.removeEventListener('click', function () {
-                    eventListener(tile)
+                    tile.removeEventListener('click', function() {
+                        onTileClick(tile.dataset.index)
                     })
                 });
 
@@ -88,7 +87,9 @@ class Game {
                 document.querySelector('.playerX').textContent = 'Wins!'
                 document.querySelector('.playerX').style.transform = 'scale(1.5)';
                 tiles.forEach(tile => {
-                    tile.removeEventListener('click', eventListener)
+                    tile.removeEventListener('click', function() {
+                        onTileClick(tile.dataset.index)
+                    })
                 });
 
                 // add wins history
@@ -102,8 +103,8 @@ class Game {
                 return combination;
             } else {
                 tiles.forEach(tile => {
-                    tile.removeEventListener('click', function (){
-                    eventListener(tile)
+                    tile.removeEventListener('click', function() {
+                        onTileClick(tile.dataset.index)
                     })
                 });
             }
@@ -149,13 +150,11 @@ document.querySelector('#start').addEventListener('click', () => {
     onRestartClick();
 })
 
-function eventListener(name) {
-    onTileClick(name.dataset.index)
-}
+let tiles = document.querySelectorAll('.col')
 
 tiles.forEach(tile => {
     tile.addEventListener('click', function (){
-     eventListener(tile)
+     onTileClick(tile.dataset.index)
     })
 });
 
