@@ -67,6 +67,8 @@ class Game {
             if( this.board[a] === 'X' && (this.board[a] === this.board[b] && this.board[a] === this.board[c])){
                 document.querySelector('.playerO').textContent = 'Wins!'
                 document.querySelector('.playerO').style.transform = 'scale(1.5)'
+                
+                let tiles = document.querySelectorAll('.col')
                 tiles.forEach(tile => {
                     tile.removeEventListener('click', execute)
                 });
@@ -84,6 +86,8 @@ class Game {
                 let container = document.querySelector('#left-table')
                 document.querySelector('.playerX').textContent = 'Wins!'
                 document.querySelector('.playerX').style.transform = 'scale(1.5)';
+                
+                let tiles = document.querySelectorAll('.col')
                 tiles.forEach(tile => {
                     tile.removeEventListener('click', execute)
                 });
@@ -98,6 +102,7 @@ class Game {
 
                 return combination;
             } else {
+                let tiles = document.querySelectorAll('.col')
                 tiles.forEach(tile => {
                     tile.removeEventListener('click', execute)
                 });
